@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title id="pageTitle">Error</title>
+</head>
+<body>
+<div th:fragment="content">
+    <div class="text-center">
+        <div class="alert alert-danger">
+            <h2>Error</h2>
+            <p th:text="${errorMessage}">An error occurred.</p>
+            <a href="/" class="btn btn-primary">Return to Home</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

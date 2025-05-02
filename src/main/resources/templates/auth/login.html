@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title id="pageTitle">Login</title>
+</head>
+<body>
+<div th:fragment="content">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form action="#" method="post">
+                        <div class="mb-3">
+                            <label for="originalUrl" class="form-label">Original URL</label>
+                            <input type="url" class="form-control" id="originalUrl" name="originalUrl" placeholder="https://example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customAlias" class="form-label">Custom Alias (Optional)</label>
+                            <input type="text" class="form-control" id="customAlias" name="customAlias" placeholder="my-custom-link">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Shorten URL</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Quick Stats</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card bg-primary text-white mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total URLs</h5>
+                                    <p class="card-text display-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card bg-success text-white mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Clicks</h5>
+                                    <p class="card-text display-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

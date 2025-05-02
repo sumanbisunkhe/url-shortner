@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>User Management</h1>
+
+    <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+    <a href="/users/create" class="btn btn-success mb-3">Create New User</a>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.role}"></td>
+            <td>
+                <a th:href="@{/users/{id}/edit(id=${user.id})}" class="btn btn-primary">Edit</a>
+                <form th:action="@{/users/{id}/delete(id=${user.id})}" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination">
+            <span th:each="page : ${#numbers.sequence(1, users.totalPages)}">
+                <a th:href="@{/users(page=${page}, size=${users.size})}"
+                   th:text="${page}"
+                   th:class="${page == users.number + 1} ? 'active'"></a>
+            </span>
+    </div>
+</div>
+</body>
+</html>
